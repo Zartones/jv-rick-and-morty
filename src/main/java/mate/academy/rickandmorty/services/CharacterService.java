@@ -16,6 +16,12 @@ public class CharacterService {
     }
 
     public Character getRandomCharacter() {
+        List<Character> allCharacters = characterRepository.findAll();
+
+        if (allCharacters.isEmpty()) {
+            return null;
+        }
+
         int index = new Random().nextInt((int) characterRepository.count());
         return characterRepository.findAll(PageRequest.of(index, 1)).getContent().get(0);
     }

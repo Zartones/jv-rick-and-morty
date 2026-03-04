@@ -1,6 +1,8 @@
 package mate.academy.rickandmorty.controller;
 
 import java.util.List;
+
+import io.swagger.v3.oas.annotations.Operation;
 import mate.academy.rickandmorty.model.Character;
 import mate.academy.rickandmorty.services.CharacterService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,11 +20,13 @@ public class CharacterController {
     }
 
     @GetMapping("/random")
+    @Operation(summary = "Create random character")
     public Character getRandomCharacter() {
         return characterService.getRandomCharacter();
     }
 
     @GetMapping("/search")
+    @Operation(summary = "Find all characters with specific string in their name")
     public List<Character> getCharacterList(@RequestParam(defaultValue = "ick") String str) {
         return characterService.findByString(str);
     }
