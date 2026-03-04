@@ -29,7 +29,6 @@ public class ExternalApiDataSave implements ApplicationRunner {
         int allPages = firstPage.getInfo().getPages();
 
         for (int i = 1; i <= allPages; i++) {
-            Thread.sleep(1000);
             ExternalCharacterResponse currentPage;
             if (i == 1) {
                 currentPage = firstPage;
